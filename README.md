@@ -13,6 +13,8 @@
 
 反馈入口随 iOS 1.1.14 Beta 包上线；Windows / Android 共用源码已加入，原有 1.1.14 正式安装包此次未重新打包。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
 
+<p><img src="docs/screenshots/iphone-feedback-beta1.png" alt="1.1.14 Beta 1 实际 iPhone 应用内问题反馈入口" width="300"></p>
+
 ## 下载与安装
 
 [Windows / Android 最新正式版](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/latest) · [开发中的三端源码](https://github.com/nickfox395/ZhongYuToolBox_Web/tree/feature/ios-liquid-glass-1.1.9) · [原作者项目](https://github.com/Loshop-Studio/ZhongYuToolBox_Web)
@@ -35,7 +37,7 @@
 
 ## 实际运行界面
 
-以下是实际应用和测试环境截图，不是设计稿。iPhone / iPad 的 1.1.13 截图来自 iOS 26 模拟器中运行的 UIKit + WKWebView 应用；Android 截图来自 1.1.12 模拟器，导航布局沿用至当前版本。Windows 的 1.1.13 网页资源以 WebView2 模式运行，列表使用离线演示数据。专栏和画板测试使用合成资料，截图未展示真实账号和学习资料。
+以下是实际应用和测试环境截图，不是设计稿。iPhone 基础页面及 iPad 竖屏截图来自 1.1.13；iPhone 反馈入口与 iPad 横屏截图已更新为 1.1.14 Beta 1，来自 iOS 26 模拟器中运行的 UIKit + WKWebView 应用；Android 截图来自 1.1.12 模拟器，导航布局沿用至当前版本。Windows 的 1.1.13 网页资源以 WebView2 模式运行，列表使用离线演示数据。专栏和画板测试使用合成资料，截图未展示真实账号和学习资料。
 
 <p><img src="docs/screenshots/iphone-light.png" alt="iPhone 浅色模式与系统 Liquid Glass 底栏" width="260"> <img src="docs/screenshots/iphone-dark.png" alt="iPhone 深色模式" width="260"> <img src="docs/screenshots/android-light.png" alt="Android 四栏布局" width="260"></p>
 
@@ -47,7 +49,7 @@
 
 <p><img src="docs/screenshots/ipad-light.png" alt="iPad 竖屏资源页" width="620"></p>
 
-**iPad 横屏**：截取整个模拟器屏幕，分别核查专栏列表、文章图片和“我的”页面；内容可正常滚动，四个原生标签在屏幕底部。浅色和深色截图独立标注，避免将 Windows 界面误认为 iPad。
+**iPad 横屏 · 1.1.14 Beta 1**：截取整个模拟器屏幕，分别核查专栏列表、文章图片和“我的”页面；内容可正常滚动，四个原生标签在屏幕底部。浅色和深色截图独立标注，避免将 Windows 界面误认为 iPad。
 
 <p><img src="docs/screenshots/ipad-landscape-column-light.png" alt="iPad 横屏浅色专栏列表，完整屏幕" width="900"></p>
 
