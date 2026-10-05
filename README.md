@@ -15,6 +15,12 @@
 
 <p><img src="docs/screenshots/iphone-feedback-beta2.png" alt="1.1.14 Beta 2 实际 iPhone 应用内问题反馈入口" width="300"></p>
 
+**Android 滚动修复（2026-10-06）**：1.1.14 正式页的 APK 已替换，版本号保持不变，请重新下载安装。「关于应用」的检查更新、问题反馈、使用说明与致谢现在可正常上下滑动，反馈页底部的「复制反馈信息」可完整显示；其他个人工具页面也恢复外层滚动。笔记预览、画板与选课仍保留自己的工作区布局，作者统计保持开启。
+
+下面是在 Android 模拟器中安装本次正式签名 APK 后的实际截图：左侧为反馈页顶部，右侧为滑动到末尾后的复制按钮，无需登录。
+
+<p><img src="docs/screenshots/android-feedback-scroll-top.png" alt="Android 1.1.14 正式 APK 的问题反馈页顶部" width="260"> <img src="docs/screenshots/android-feedback-scroll-bottom.png" alt="Android 1.1.14 正式 APK 滑动到反馈页末尾，复制反馈信息按钮完整显示在底栏上方" width="260"></p>
+
 ## 下载与安装
 
 [Windows / Android 最新正式版](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/latest) · [开发中的三端源码](https://github.com/nickfox395/ZhongYuToolBox_Web/tree/feature/ios-liquid-glass-1.1.9) · [原作者项目](https://github.com/Loshop-Studio/ZhongYuToolBox_Web)
