@@ -11,35 +11,52 @@
 2. **填写「操作步骤」「预期结果」和「实际结果 / 报错」，准备好报错截图。**
 3. **点击「复制反馈信息」，将反馈内容和截图发送到页面显示的 QQ 交流群；也可点击「在 GitHub 提交问题」，补充内容后提交 Issue。**
 
-反馈入口随 iOS 1.1.14 Beta 包上线；Windows / Android 共用源码已加入，原有 1.1.14 正式安装包此次未重新打包。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
+反馈入口已包含在 iOS 1.1.14 Beta 与本次 Android 1.1.14 更新包中；Windows 共用源码已加入，既有 Windows 正式安装包此次未重新打包。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
 
-<p><img src="docs/screenshots/iphone-feedback-beta1.png" alt="1.1.14 Beta 1 实际 iPhone 应用内问题反馈入口" width="300"></p>
+<p><img src="docs/screenshots/iphone-feedback-beta2.png" alt="1.1.14 Beta 2 实际 iPhone 应用内问题反馈入口" width="300"></p>
 
 ## 下载与安装
 
 [Windows / Android 最新正式版](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/latest) · [开发中的三端源码](https://github.com/nickfox395/ZhongYuToolBox_Web/tree/feature/ios-liquid-glass-1.1.9) · [原作者项目](https://github.com/Loshop-Studio/ZhongYuToolBox_Web)
 
-当前 Windows / Android 正式版为 **1.1.14-aoki**；iOS 同为 **1.1.14**，改为独立 **Beta 内测**发布。新增云笔记高清矢量 PDF、当前页 SVG 与全部页面 SVG（ZIP）导出，沿用 npm 画板组件。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.14 Beta 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.14-ios-beta1)，不再放入正式版下载。
+当前 Windows / Android 正式版为 **1.1.14-aoki**；iOS 同为 **1.1.14**，改为独立 **Beta 内测**发布。新增云笔记高清矢量 PDF、当前页 SVG 与全部页面 SVG（ZIP）导出，沿用 npm 画板组件。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.14 Beta 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.14-ios-beta2)，不再放入正式版下载。
 
 | 平台 | 下载文件 | 安装方式 |
 | --- | --- | --- |
 | Windows 10/11 x64 | `Windows-x64-Setup.exe` 或便携 ZIP | 运行安装程序；便携版完整解压后打开 exe，需要系统 WebView2 Runtime |
 | Android 8.0+ | `Android.apk` | 在 Android 设备打开 APK，按系统提示安装，需要较新的系统 WebView |
-| iPhone / iPad · iOS 16+ | `iOS-beta1-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
+| iPhone / iPad · iOS 16+ | `iOS-beta2-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
 
 安装包不包含账号、密码、Token 或个人笔记。Windows 同一系统用户的不同便携版本复用 `%LOCALAPPDATA%\ZhongYuToolbox-aoki-WebView2` 的既有登录缓存；自动登录不等于账号被打进安装包。
 
-## iOS 1.1.14 Beta 1
+## iOS 1.1.14 Beta 2 · 移动端紧凑布局
 
-修复图库及云笔记上传的 ATS 拦截：官方 STS 返回的阿里云 HTTP endpoint、图库图片地址与重定向统一使用 HTTPS，保持文件内容、对象路径及签名参数。主版本仍为 1.1.14，应用内显示 beta1，内部构建号为 10114.2；后续 beta2 等可由检查更新识别。验证包含真实原生 URLSession 对公开 OSS 地址的无凭据 HEAD 请求，以及模拟 HTTP endpoint 的上传回归；不向真实账号上传测试资料。
+主版本保持 **1.1.14**，应用内显示 **1.1.14-ios-beta2**，内部构建号 **10114.3**。Android 1.1.14 正式页的 APK 同步替换为这次移动布局；Windows 附件保留原版本。
+
+- 顶部品牌、大标题和重复说明合并为一行，分类栏与正文的间距缩短；笔记、文章和画板详情页合并重复标题 / 返回栏。
+- Android 普通底栏约 55 CSS 像素高；iOS 保留 Apple 原生底栏、搜索与返回，按实际高度避让。主要导航按钮的触摸区域仍至少为 44 像素。
+- 云笔记减少列表内边距，长列表最后一项可完整滚动到导航栏上方；专栏、选课与详情使用剩余高度。
+- 保留浅色 / 深色 / 跟随系统、作者统计、HTTPS OSS 上传、WebP 本地编码、端口冲突修复、笔记矢量导出与既有功能。
+
+原生 iPhone 测试覆盖专栏内容可见范围、原生导航、文章图片、画板编辑、上传及反馈；iPad 测试覆盖横屏完整尺寸与底栏位置。测试素材为合成内容，云端写入被模拟，未使用真实账号上传或删除资料。
 
 本仓库与上游分别发布 iOS Pre-release；fork 与上游发行包均保留并启用作者统计，并使用各自仓库的更新及反馈入口。两份包保留本版移动 UI，未覆盖上游主分支代码。
 
 ## 实际运行界面
 
-以下是实际应用和测试环境截图，不是设计稿。iPhone 基础页面及 iPad 竖屏截图来自 1.1.13；iPhone 反馈入口与 iPad 横屏截图已更新为 1.1.14 Beta 1，来自 iOS 26 模拟器中运行的 UIKit + WKWebView 应用；Android 截图来自 1.1.12 模拟器，导航布局沿用至当前版本。Windows 的 1.1.13 网页资源以 WebView2 模式运行，列表使用离线演示数据。专栏和画板测试使用合成资料，截图未展示真实账号和学习资料。
+以下是实际运行截图，不是设计稿。iPhone / iPad 截图已更新为 **1.1.14 Beta 2**，来自 iOS 26 模拟器中的 **UIKit + WKWebView** 应用；Android 截图为本次 **1.1.14** 原生壳，登录后的列表使用独立 QA 包的离线测试资料，正式 APK 不包含这些资料。Windows 旧截图保留并标明版本。截图不展示真实账号和学习资料。
 
-<p><img src="docs/screenshots/iphone-light.png" alt="iPhone 浅色模式与系统 Liquid Glass 底栏" width="260"> <img src="docs/screenshots/iphone-dark.png" alt="iPhone 深色模式" width="260"> <img src="docs/screenshots/android-light.png" alt="Android 四栏布局" width="260"></p>
+**移动端工作区**：一行标题、更紧凑的分类与底栏；iPhone 专栏、Android 云笔记浅色与深色。
+
+<p><img src="docs/screenshots/iphone-compact-column-beta2.png" alt="1.1.14 Beta 2 iPhone 原生应用紧凑专栏工作区，离线测试文章" width="260"> <img src="docs/screenshots/android-light.png" alt="1.1.14 Android 原生壳紧凑云笔记工作区，离线测试数据" width="260"> <img src="docs/screenshots/android-dark.png" alt="1.1.14 Android 原生壳深色云笔记" width="260"></p>
+
+**Android 笔记预览**：详情页保留一条操作栏，预览与翻页使用剩余空间；列表末项也可完整显示。
+
+<p><img src="docs/screenshots/android-note-detail-light.png" alt="Android 一条笔记标题操作栏与矢量预览，离线测试笔记" width="260"> <img src="docs/screenshots/android-notes-bottom-light.png" alt="Android 长列表最后一项与操作按钮完整显示在底栏上方" width="260"></p>
+
+**iPhone 未登录首页**：浅色 / 深色与 Apple 原生底栏。
+
+<p><img src="docs/screenshots/iphone-light.png" alt="1.1.14 Beta 2 iPhone 浅色未登录资源页与原生底栏" width="260"> <img src="docs/screenshots/iphone-dark.png" alt="1.1.14 Beta 2 iPhone 跟随系统深色" width="260"></p>
 
 **iPhone 画板回复**：实际输入文字、撤销并重做后的画布，缩放为正数。
 
@@ -49,7 +66,7 @@
 
 <p><img src="docs/screenshots/ipad-light.png" alt="iPad 竖屏资源页" width="620"></p>
 
-**iPad 横屏 · 1.1.14 Beta 1**：截取整个模拟器屏幕，分别核查专栏列表、文章图片和“我的”页面；内容可正常滚动，四个原生标签在屏幕底部。浅色和深色截图独立标注，避免将 Windows 界面误认为 iPad。
+**iPad 横屏 · 1.1.14 Beta 2**：截取整个模拟器屏幕，分别核查专栏列表、文章图片和“我的”页面；内容可正常滚动，四个原生标签在屏幕底部。浅色和深色截图独立标注，避免将 Windows 界面误认为 iPad。
 
 <p><img src="docs/screenshots/ipad-landscape-column-light.png" alt="iPad 横屏浅色专栏列表，完整屏幕" width="900"></p>
 
