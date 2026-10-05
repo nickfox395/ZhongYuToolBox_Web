@@ -11,23 +11,27 @@
 2. **填写「操作步骤」「预期结果」和「实际结果 / 报错」，准备好报错截图。**
 3. **点击「复制反馈信息」，将反馈内容和截图发送到页面显示的 QQ 交流群；也可点击「在 GitHub 提交问题」，补充内容后提交 Issue。**
 
-**反馈入口随本次 iOS 1.1.14 Beta 包上线；Windows / Android 的共用源码也已加入，原有 1.1.14 正式安装包此次未重新打包。**
-
-反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
+反馈入口随 iOS 1.1.14 Beta 包上线；Windows / Android 共用源码已加入，原有 1.1.14 正式安装包此次未重新打包。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
 
 ## 下载与安装
 
 [Windows / Android 最新正式版](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/latest) · [开发中的三端源码](https://github.com/nickfox395/ZhongYuToolBox_Web/tree/feature/ios-liquid-glass-1.1.9) · [原作者项目](https://github.com/Loshop-Studio/ZhongYuToolBox_Web)
 
-当前 Windows / Android 正式版为 **1.1.14-aoki**；iOS 同为 **1.1.14**，改为独立 **Beta 内测**发布。新增云笔记高清矢量 PDF、当前页 SVG 与全部页面 SVG（ZIP）导出，沿用 npm 画板组件。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.14 Beta 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.14-ios-beta)，不再放入正式版下载。
+当前 Windows / Android 正式版为 **1.1.14-aoki**；iOS 同为 **1.1.14**，改为独立 **Beta 内测**发布。新增云笔记高清矢量 PDF、当前页 SVG 与全部页面 SVG（ZIP）导出，沿用 npm 画板组件。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.14 Beta 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.14-ios-beta1)，不再放入正式版下载。
 
 | 平台 | 下载文件 | 安装方式 |
 | --- | --- | --- |
 | Windows 10/11 x64 | `Windows-x64-Setup.exe` 或便携 ZIP | 运行安装程序；便携版完整解压后打开 exe，需要系统 WebView2 Runtime |
 | Android 8.0+ | `Android.apk` | 在 Android 设备打开 APK，按系统提示安装，需要较新的系统 WebView |
-| iPhone / iPad · iOS 16+ | `iOS-beta-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
+| iPhone / iPad · iOS 16+ | `iOS-beta1-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
 
 安装包不包含账号、密码、Token 或个人笔记。Windows 同一系统用户的不同便携版本复用 `%LOCALAPPDATA%\ZhongYuToolbox-aoki-WebView2` 的既有登录缓存；自动登录不等于账号被打进安装包。
+
+## iOS 1.1.14 Beta 1
+
+修复图库及云笔记上传的 ATS 拦截：官方 STS 返回的阿里云 HTTP endpoint、图库图片地址与重定向统一使用 HTTPS，保持文件内容、对象路径及签名参数。主版本仍为 1.1.14，应用内显示 beta1，内部构建号为 10114.2；后续 beta2 等可由检查更新识别。验证包含真实原生 URLSession 对公开 OSS 地址的无凭据 HEAD 请求，以及模拟 HTTP endpoint 的上传回归；不向真实账号上传测试资料。
+
+本仓库与上游分别发布 iOS Pre-release；fork 与上游发行包均保留并启用作者统计，并使用各自仓库的更新及反馈入口。两份包保留本版移动 UI，未覆盖上游主分支代码。
 
 ## 实际运行界面
 
@@ -81,7 +85,7 @@ Windows / Android / iPhone / iPad 版本统一为 1.1.14-aoki，源码位于 `fe
 - 新增笔记矢量 PDF 导出，随包提供 HarmonyOS Sans SC 中文字体；不可渲染的矢量页回退到官方截图，缺失整页时明确报错，不静默漏页。
 - 登录页新增「记住密码」，仅在成功登录后按勾选状态保存在本机；退出登录清除会话但保留主动记住的凭据，取消勾选立即清除密码。
 - 保留 aoki 界面、浅色/深色/跟随系统、三端原生壳及全部既有功能；错题本继续使用思源宋体与原有题目/答案分区排版。
-- 作者用户量统计仍默认关闭；开启后的接口合约不变，统计失败不影响登录。
+- 从本次 iOS Beta 1 及后续版本起，作者用户量统计默认启用；原接口合约不变，统计失败不影响登录。
 
 ## 1.1.13 新增：随身答画板与关于应用
 
@@ -109,7 +113,7 @@ Windows / Android / iPhone / iPad 版本统一为 1.1.14-aoki，源码位于 `fe
 - 官方错题本可导出选中题目或本科全部题目为 A4 PDF。全部题目连续编号在前，答案与解析另起一页，编号对应；思源宋体约 12 磅，紧凑排版，长题利用剩余空间自动续页。LaTeX 公式用随包 KaTeX 在本地排版，主字号与正文一致，上下标保留数学比例；公式图片带有 LaTeX 源码时重新排版，其他图片保留题目声明的像素或 em 显示尺寸。
 - 官方错题本支持单题删除与多选删除，确认后按实际条目 ID 提交，服务端拒绝时保留界面题目。
 - 选课嵌入预加载官方加密学生资料，修复初始化竞争；提供重新加载、超时和网络失败提示。
-- 登录、文件及测评接口直连官方服务，本 fork 默认关闭作者统计，移除版本／风控服务依赖；上游 PR 保留并启用作者用户量统计，见 [UPSTREAM_PR.md](https://github.com/nickfox395/ZhongYuToolBox_Web/blob/feature/ios-liquid-glass-1.1.9/UPSTREAM_PR.md)，分享改为本地加密文件。
+- 登录、文件及测评接口直连官方服务，本 fork 从 iOS Beta 1 及后续版本起默认启用作者统计，移除版本／风控服务依赖；上游 PR 保留并启用作者用户量统计，见 [UPSTREAM_PR.md](https://github.com/nickfox395/ZhongYuToolBox_Web/blob/feature/ios-liquid-glass-1.1.9/UPSTREAM_PR.md)，分享改为本地加密文件。
 
 删除合约来自用户提供的官方 APK，异常与取消路径使用离线模拟验证，没有为测试删除真实账号的错题、笔记或图片。图库回收站合约已从中育桌面确认。最终平板安装与导入等设备行为仍需实际设备确认。云功能仍依赖中育官方学校服务器与 OSS。
 
