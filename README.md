@@ -19,6 +19,12 @@
 
 **Android 上传修复（同日追加）**：修复 OSS 返回 `403 / OSS authentication requires a valid Date`。Chromium 会从 `Request` 中删除 `Date` 请求头，原生网络桥现在保留与签名完全一致的日期。正式 APK 已再次替换，仍为 1.1.14，需重新下载覆盖安装；滚动修复保留。
 
+**Android 加密 PDF 上传修复（同日追加）**：带加密标记但不需要打开密码的 PDF，改为在本机逐页渲染成未加密的兼容 PDF 后上传，修复 `PDFDocument.load is encrypted`。保留完整可见页面，竖页逆时针旋转 90°，原文件不变；此兼容流程会将页面栅格化，普通 PDF 仍保留矢量处理方式。需要打开密码的文件会提示先在阅读器中打开并另存为无需打开密码的副本。APK 仍为 1.1.14，请重新下载安装。
+
+**加密 PDF 回归截图**：独立原生 Android 测试包使用合成文件，验证 RC4、AES-128、AES-256 的四页内容、方向、四角完整性与原文件不变，并核查需要密码时的中文提示。下方两张页面分别是加密原文旋转后的画面与转换结果，无真实账号或云端写入；正式 APK 不包含测试页及样本。
+
+<p><img src="docs/screenshots/android-encrypted-pdf-qa.png" alt="原生 Android 加密 PDF 转换回归全部通过，合成测试页面完整且未裁切" width="300"></p>
+
 下面是在 Android 模拟器中安装本次正式签名 APK 后的实际截图：左侧为反馈页顶部，右侧为滑动到末尾后的复制按钮，无需登录。
 
 <p><img src="docs/screenshots/android-feedback-scroll-top.png" alt="Android 1.1.14 正式 APK 的问题反馈页顶部" width="260"> <img src="docs/screenshots/android-feedback-scroll-bottom.png" alt="Android 1.1.14 正式 APK 滑动到反馈页末尾，复制反馈信息按钮完整显示在底栏上方" width="260"></p>
