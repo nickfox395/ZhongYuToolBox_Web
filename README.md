@@ -17,9 +17,15 @@
 
 **Android 滚动修复（2026-10-06）**：1.1.14 正式页的 APK 已替换，版本号保持不变，请重新下载安装。「关于应用」的检查更新、问题反馈、使用说明与致谢现在可正常上下滑动，反馈页底部的「复制反馈信息」可完整显示；其他个人工具页面也恢复外层滚动。笔记预览、画板与选课仍保留自己的工作区布局，作者统计保持开启。
 
+**Android 上传修复（同日追加）**：修复 OSS 返回 `403 / OSS authentication requires a valid Date`。Chromium 会从 `Request` 中删除 `Date` 请求头，原生网络桥现在保留与签名完全一致的日期。正式 APK 已再次替换，仍为 1.1.14，需重新下载覆盖安装；滚动修复保留。
+
 下面是在 Android 模拟器中安装本次正式签名 APK 后的实际截图：左侧为反馈页顶部，右侧为滑动到末尾后的复制按钮，无需登录。
 
 <p><img src="docs/screenshots/android-feedback-scroll-top.png" alt="Android 1.1.14 正式 APK 的问题反馈页顶部" width="260"> <img src="docs/screenshots/android-feedback-scroll-bottom.png" alt="Android 1.1.14 正式 APK 滑动到反馈页末尾，复制反馈信息按钮完整显示在底栏上方" width="260"></p>
+
+**上传回归测试截图**：以下为独立 Android 测试包的诊断页，不是业务界面。通过真实 WebView 与原生 HTTP 连接本机模拟 OSS；左侧旧桥复现缺失 Date 的 403，右侧修复后验证 ZIP、JPEG、WebP 的签名、日期及完整 600 KB 文件内容。使用测试凭据，无真实云端写入；正式 APK 不包含这些测试页或测试服务器配置。
+
+<p><img src="docs/screenshots/android-oss-date-before.png" alt="Android 旧网络桥在本机模拟 OSS 复现 Date 缺失导致的 403，独立测试包" width="260"> <img src="docs/screenshots/android-oss-date-after.png" alt="Android 修复后的网络桥通过三种文件的日期、签名及字节校验，独立测试包" width="260"></p>
 
 ## 下载与安装
 
