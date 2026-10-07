@@ -11,7 +11,7 @@
 2. **填写「操作步骤」「预期结果」和「实际结果 / 报错」，准备好报错截图。**
 3. **点击「复制反馈信息」，将反馈内容和截图发送到页面显示的 QQ 交流群；也可点击「在 GitHub 提交问题」，补充内容后提交 Issue。**
 
-反馈入口已包含在 iOS 1.1.14 Beta 与本次 Android 1.1.14 更新包中；Windows 共用源码已加入，既有 Windows 正式安装包此次未重新打包。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
+反馈入口已包含在 Windows / Android 1.1.15 正式版与 iOS 1.1.15 Beta 1 中。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
 
 <p><img src="docs/screenshots/iphone-feedback-beta2.png" alt="1.1.14 Beta 2 实际 iPhone 应用内问题反馈入口" width="300"></p>
 
@@ -43,15 +43,28 @@
 
 [Windows / Android 最新正式版](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/latest) · [开发中的三端源码](https://github.com/nickfox395/ZhongYuToolBox_Web/tree/feature/ios-liquid-glass-1.1.9) · [原作者项目](https://github.com/Loshop-Studio/ZhongYuToolBox_Web)
 
-当前 Windows / Android 正式版为 **1.1.14-aoki**；iOS 同为 **1.1.14**，改为独立 **Beta 内测**发布。新增云笔记高清矢量 PDF、当前页 SVG 与全部页面 SVG（ZIP）导出，沿用 npm 画板组件。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.14 Beta 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.14-ios-beta2)，不再放入正式版下载。
+当前 Windows / Android 正式版为 **1.1.15-aoki**；iOS 同为 **1.1.15**，独立 **Beta 内测**发布。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.15 Beta 1 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.15-ios-beta1)，不放入正式版下载。保留云笔记高清矢量 PDF、SVG / ZIP 导出与所有既有功能。
 
 | 平台 | 下载文件 | 安装方式 |
 | --- | --- | --- |
 | Windows 10/11 x64 | `Windows-x64-Setup.exe` 或便携 ZIP | 运行安装程序；便携版完整解压后打开 exe，需要系统 WebView2 Runtime |
 | Android 8.0+ | `Android.apk` | 在 Android 设备打开 APK，按系统提示安装，需要较新的系统 WebView |
-| iPhone / iPad · iOS 16+ | `iOS-beta2-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
+| iPhone / iPad · iOS 16+ | `1.1.15-iOS-beta1-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
 
 安装包不包含账号、密码、Token 或个人笔记。Windows 同一系统用户的不同便携版本复用 `%LOCALAPPDATA%\ZhongYuToolbox-aoki-WebView2` 的既有登录缓存；自动登录不等于账号被打进安装包。
+
+## 1.1.15 · 修复凌晨上传 403
+
+- 上传目录原来使用 UTC 日期，北京时间 00:00—08:00 会落在前一天，与官方 STS 授权目录不一致，出现 `AccessDenied / Access denied by authorizer's policy`。现在固定按北京时间（UTC+8）计算授权日期，优先读取 STS 响应的服务端 Date，不受设备所在时区影响。
+- 同一份笔记复用一次 STS 临时授权和一个目录；上传跨过午夜时，全部页面与资源仍在同一根地址。临时授权过期则提示重试，不静默切换到另一天的目录。其他单文件上传同样使用北京时间日期。
+- OSS 签名请求头的 Date 保持 GMT 协议格式；真实上传返回的学校桶地址继续用于笔记资源引用。作者统计保持开启，两份发行包各自使用对应仓库的更新与反馈入口。
+- Windows / Android 发布 1.1.15 正式包，iOS 发布 **1.1.15 Beta 1**（构建号 `10115.1`），保留此前上传、旧 WebView、加密 PDF、滚动及既有功能修复。旧版本凌晨报错的用户需要重新下载安装。
+
+回归包含 Android、iOS、WebView2、H5+ 和浏览器五种路径：00:00 / 08:00、跨午夜、闰日、跨年、三种设备时区、服务端时间与授权过期，共 130 次通过模拟授权策略的上传。测试验证路径、签名和文件字节，不向真实账号写入资料；这不是凌晨真实学校服务的在线联调记录。下方旧截图保留实际拍摄版本，1.1.15 未改变界面布局。
+
+**1.1.15 Android 正式 APK 启动实测**：在 Android 模拟器覆盖安装签名发行包后截取的未登录资源页，非设计稿、不包含测试资料。安装后的 versionName 为 `1.1.15-aoki`、versionCode 为 `1011501`；此图用于确认正式包能启动，不作为凌晨云端上传成功的证据。
+
+<p><img src="docs/screenshots/android-1115-native-launch.png" alt="1.1.15 签名 Android 正式 APK 在模拟器中启动的未登录资源页" width="300"></p>
 
 ## iOS 1.1.14 Beta 2 · 移动端紧凑布局
 
