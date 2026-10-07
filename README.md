@@ -64,6 +64,7 @@ Windows 原生 WebView2 的 183 项检查与 Android WebView 的 23 项笔记检
 **本次 iPad 横屏回归截图**：iOS 26 模拟器安装本次原生测试构建后的实际截图；数据为合成专栏，检查内容区、栏目列表和底部原生导航完整显示。正式 IPA 不包含测试资料。
 
 <p><img src="docs/screenshots/ipad-landscape-column-1.1.15-beta2.png" alt="1.1.15 Beta 2 的 iPad 横屏专栏布局原生回归，合成测试资料" width="860"></p>
+
 ## 1.1.15 · 修复凌晨上传 403
 
 - 上传目录原来使用 UTC 日期，北京时间 00:00—08:00 会落在前一天，与官方 STS 授权目录不一致，出现 `AccessDenied / Access denied by authorizer's policy`。现在固定按北京时间（UTC+8）计算授权日期，优先读取 STS 响应的服务端 Date，不受设备所在时区影响。
