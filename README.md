@@ -220,7 +220,7 @@ PDF 数学排版使用 KaTeX（Khan Academy and other contributors），渲染�
 
 ## 验证范围与依赖
 
-本次回归包括 160 条真实 Windows WebView2 断言（144 种不同检查），以及 PDF、图库、应用下载、领创、统计开关、Android/iOS 桥接与检查更新的自动化测试；另用合成录制实际编码并解码 MP4，验证多页 SVG。测试不向真实账号新增、删除或发送资料。报告见 [功能核查](docs/FEATURE_VERIFICATION.md)。
+既往功能核查记录包括 160 条真实 Windows WebView2 断言（144 种不同检查），以及 PDF、图库、应用下载、领创、统计开关、Android/iOS 桥接与检查更新的自动化测试；另用合成录制实际编码并解码 MP4，验证多页 SVG。测试不向真实账号新增、删除或发送资料。报告见 [功能核查](docs/FEATURE_VERIFICATION.md)。本次 1.1.15 新增凌晨日期及跨午夜授权回归，验证范围见上方版本说明；不将既往完整功能核查视为本次全部重测。
 
 Windows 安装程序完成首次安装、197 个载荷摘要、覆盖修复和卸载检查。iOS 1.1.14 Beta 2 在 iOS 26 模拟器完成 5 项 iPhone 测试与 1 项 iPad 横屏测试，包含实际 WKWebView 输入、文章图片、原生返回和导航、上传回归及应用内反馈。模拟器验证不等同于所有真机、所有学校接口均已联调。
 
