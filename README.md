@@ -25,6 +25,12 @@
 
 <p><img src="docs/screenshots/android-encrypted-pdf-qa.png" alt="原生 Android 加密 PDF 转换回归全部通过，合成测试页面完整且未裁切" width="300"></p>
 
+**Android PDF 兼容修复（2026-10-07）**：修复较旧 Android WebView 提示 `Promise.withResolvers is not a function`、导致 PDF 预览或本地处理失败的问题。PDF.js 主包与独立解析 worker 统一使用官方 legacy 兼容版。现有 1.1.14 APK 已再次替换，请重新下载覆盖安装；此前的加密 PDF、OSS 日期与滚动修复保留，作者统计继续开启。
+
+**缺失 API 回归截图**：独立原生 Android 测试包在页面和真正的模块 worker 中主动移除 `Promise.withResolvers`，验证兼容包恢复该 API 后仍可转换、渲染三类加密 PDF。截图使用合成页面，不含真实账号或云端写入；这是缺失 API 的模拟测试，不等于已测试所有旧版 WebView。
+
+<p><img src="docs/screenshots/android-pdf-webview-qa.png" alt="Android 主线程与独立 worker 缺少 Promise.withResolvers 时，PDF 本地转换回归全部通过" width="300"></p>
+
 下面是在 Android 模拟器中安装本次正式签名 APK 后的实际截图：左侧为反馈页顶部，右侧为滑动到末尾后的复制按钮，无需登录。
 
 <p><img src="docs/screenshots/android-feedback-scroll-top.png" alt="Android 1.1.14 正式 APK 的问题反馈页顶部" width="260"> <img src="docs/screenshots/android-feedback-scroll-bottom.png" alt="Android 1.1.14 正式 APK 滑动到反馈页末尾，复制反馈信息按钮完整显示在底栏上方" width="260"></p>
