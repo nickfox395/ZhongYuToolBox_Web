@@ -11,7 +11,7 @@
 2. **填写「操作步骤」「预期结果」和「实际结果 / 报错」，准备好报错截图。**
 3. **点击「复制反馈信息」，将反馈内容和截图发送到页面显示的 QQ 交流群；也可点击「在 GitHub 提交问题」，补充内容后提交 Issue。**
 
-反馈入口已包含在 Windows / Android 1.1.15 正式版与 iOS 1.1.15 Beta 1 中。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
+反馈入口已包含在 Windows / Android 1.1.15 正式版与 iOS 1.1.15 Beta 2 中。反馈页面会自动带上应用版本、运行平台和系统 / 浏览器信息，不自动提交账号或学习资料。页面显示的 QQ 交流群为 `1067807011`。
 
 <p><img src="docs/screenshots/iphone-feedback-beta2.png" alt="1.1.14 Beta 2 实际 iPhone 应用内问题反馈入口" width="300"></p>
 
@@ -43,16 +43,27 @@
 
 [Windows / Android 最新正式版](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/latest) · [开发中的三端源码](https://github.com/nickfox395/ZhongYuToolBox_Web/tree/feature/ios-liquid-glass-1.1.9) · [原作者项目](https://github.com/Loshop-Studio/ZhongYuToolBox_Web)
 
-当前 Windows / Android 正式版为 **1.1.15-aoki**；iOS 同为 **1.1.15**，独立 **Beta 内测**发布。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.15 Beta 1 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.15-ios-beta1)，不放入正式版下载。保留云笔记高清矢量 PDF、SVG / ZIP 导出与所有既有功能。
+当前 Windows / Android 正式版为 **1.1.15-aoki**；iOS 同为 **1.1.15**，独立 **Beta 内测**发布。Windows 提供安装程序和便携包，Android 提供 APK，iPhone / iPad 的未签名 IPA 仅放在 [iOS 1.1.15 Beta 2 内测页](https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.15-ios-beta2)，不放入正式版下载。保留云笔记高清矢量 PDF、SVG / ZIP 导出与所有既有功能。
 
 | 平台 | 下载文件 | 安装方式 |
 | --- | --- | --- |
 | Windows 10/11 x64 | `Windows-x64-Setup.exe` 或便携 ZIP | 运行安装程序；便携版完整解压后打开 exe，需要系统 WebView2 Runtime |
 | Android 8.0+ | `Android.apk` | 在 Android 设备打开 APK，按系统提示安装，需要较新的系统 WebView |
-| iPhone / iPad · iOS 16+ | `1.1.15-iOS-beta1-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
+| iPhone / iPad · iOS 16+ | `1.1.15-iOS-beta2-unsigned.ipa` | 未签名包需自行签名（如爱思助手）后安装，并在设备设置中完成信任；iOS 26 使用系统 Liquid Glass 导航 |
 
 安装包不包含账号、密码、Token 或个人笔记。Windows 同一系统用户的不同便携版本复用 `%LOCALAPPDATA%\ZhongYuToolbox-aoki-WebView2` 的既有登录缓存；自动登录不等于账号被打进安装包。
 
+## 1.1.15 · 高清笔记修复（2026-10-07 追加）
+
+Windows 安装程序、便携包和 Android APK 已重新打包替换，**版本号保持 1.1.15，请重新下载安装**；iOS 下载更新后的 **1.1.15 Beta 2**（内部构建号 `10115.2`），继续内测。
+
+整本笔记的 `page_router.bin` 原来指向 UUID 页面目录，但本地虚拟文件系统已改用页码目录，导致高清预览误报「该页缺少 snapshot.bin」。现在按实际目录读取，保留笔迹、文字、图片、MDB 资源及 PDF / SVG 导出；不修改原始云端笔记。
+
+Windows 原生 WebView2 的 183 项检查与 Android WebView 的 23 项笔记检查通过；iPhone 和 iPad 的 iOS 模拟器 WKWebView 回归覆盖高清第一页、翻页和混合页导出，[macOS 构建与模拟器测试记录](https://github.com/nickfox395/ZhongYuToolBox_Web/actions/runs/37569342316)。测试使用合成资料，不向真实账号写入。原有功能和作者统计保留。
+
+**本次 iPad 横屏回归截图**：iOS 26 模拟器安装本次原生测试构建后的实际截图；数据为合成专栏，检查内容区、栏目列表和底部原生导航完整显示。正式 IPA 不包含测试资料。
+
+<p><img src="docs/screenshots/ipad-landscape-column-1.1.15-beta2.png" alt="1.1.15 Beta 2 的 iPad 横屏专栏布局原生回归，合成测试资料" width="860"></p>
 ## 1.1.15 · 修复凌晨上传 403
 
 - 上传目录原来使用 UTC 日期，北京时间 00:00—08:00 会落在前一天，与官方 STS 授权目录不一致，出现 `AccessDenied / Access denied by authorizer's policy`。现在固定按北京时间（UTC+8）计算授权日期，优先读取 STS 响应的服务端 Date，不受设备所在时区影响。

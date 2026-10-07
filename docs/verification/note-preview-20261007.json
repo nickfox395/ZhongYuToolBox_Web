@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-07",
+  "status": "published",
+  "version": "1.1.15-aoki",
+  "fixture": "Synthetic two vector pages with original UUID page_router.bin plus a raster page; no account data",
+  "windows": {
+    "runtime": "Native WebView2 QA app",
+    "passed": true,
+    "totalAssertions": 183,
+    "noteChecks": [
+      "原始 UUID 页路由不能覆盖 VFS 页码目录",
+      "直接传入旧资源清单时 VFS 也不暴露失效 UUID 页路由",
+      "实际挂载高清组件显示第一页，不误报缺少 snapshot.bin",
+      "实际高清组件翻页到另一 UUID 页面，完整显示文字"
+    ]
+  },
+  "android": {
+    "platform": "Android emulator / native WebView",
+    "passed": true,
+    "checks": [
+      "笔记混合矢量/截图页面全部保留且排序正确",
+      "带签名参数的截图和画板资源均可识别",
+      "原始 UUID 页路由不能覆盖 VFS 页码目录",
+      "直接传入旧资源清单时 VFS 也不暴露失效 UUID 页路由",
+      "旧格式文字/笔迹及附属 bin 完整矢量还原",
+      "矢量文字与原始页序一致",
+      "实际挂载高清组件显示第一页，不误报缺少 snapshot.bin",
+      "实际高清组件翻页到另一 UUID 页面，完整显示文字",
+      "同一笔记二次渲染复用下载字节",
+      "MDB 配置/笔迹共用下载且带签名笔触可读取",
+      "临时资源失败后可重试",
+      "笔记 PDF 三页齐全且仅截图页回退",
+      "无有效矢量图元时导出截图",
+      "缺失页明确停止导出，不静默漏页",
+      "取消笔记导出不生成文件",
+      "当前页 SVG 保留真实笔迹路径和中文文字",
+      "SVG ZIP 保留混合笔记全部页序并明确标注截图页",
+      "SVG 保留竖版页面原始尺寸不裁切",
+      "截图页图片内联，离线可读取且保留完整尺寸",
+      "离线 SVG 实际解码渲染完整页面右下角",
+      "SVG 缺失页面时停止打包，不静默漏页",
+      "SVG 取消任务不保存文件",
+      "SVG 不输出依赖过期 blob 或远程图片的文件"
+    ]
+  },
+  "browser": {
+    "runtime": "Microsoft Edge",
+    "passed": true,
+    "checks": [
+      "笔记混合矢量/截图页面全部保留且排序正确",
+      "带签名参数的截图和画板资源均可识别",
+      "原始 UUID 页路由不能覆盖 VFS 页码目录",
+      "直接传入旧资源清单时 VFS 也不暴露失效 UUID 页路由",
+      "旧格式文字/笔迹及附属 bin 完整矢量还原",
+      "矢量文字与原始页序一致",
+      "实际挂载高清组件显示第一页，不误报缺少 snapshot.bin",
+      "实际高清组件翻页到另一 UUID 页面，完整显示文字",
+      "同一笔记二次渲染复用下载字节",
+      "MDB 配置/笔迹共用下载且带签名笔触可读取",
+      "临时资源失败后可重试",
+      "笔记 PDF 三页齐全且仅截图页回退",
+      "无有效矢量图元时导出截图",
+      "缺失页明确停止导出，不静默漏页",
+      "取消笔记导出不生成文件",
+      "当前页 SVG 保留真实笔迹路径和中文文字",
+      "SVG ZIP 保留混合笔记全部页序并明确标注截图页",
+      "SVG 保留竖版页面原始尺寸不裁切",
+      "截图页图片内联，离线可读取且保留完整尺寸",
+      "离线 SVG 实际解码渲染完整页面右下角",
+      "SVG 缺失页面时停止打包，不静默漏页",
+      "SVG 取消任务不保存文件",
+      "SVG 不输出依赖过期 blob 或远程图片的文件"
+    ]
+  },
+  "ios": {
+    "nativeTested": true,
+    "realDeviceTested": false,
+    "scope": "iPhone and iPad iOS 26 simulator / actual WKWebView; synthetic fixtures, no real account writes",
+    "passed": true,
+    "iphoneCases": 5,
+    "ipadCases": 2,
+    "source": "b231c4dbf8814a48ffcfd9b3aa594869d4015d74",
+    "run": 37569342316,
+    "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/actions/runs/37569342316",
+    "nativePassedCases": [
+      "Test Case '-[NavigationUITests.NavigationUITests testBoardReplyFitsPhoneAndSupportsEditing]' passed (30.523 seconds).",
+      "Test Case '-[NavigationUITests.NavigationUITests testColumnLayoutImagesAndNativeBack]' passed (17.667 seconds).",
+      "Test Case '-[NavigationUITests.NavigationUITests testFeedbackEntryAndTemplate]' passed (16.770 seconds).",
+      "Test Case '-[NavigationUITests.NavigationUITests testIosUploadConversionAndTransport]' passed (14.433 seconds).",
+      "Test Case '-[NavigationUITests.NavigationUITests testNativeGroupsAndSystemGlass]' passed (28.095 seconds).",
+      "Test Case '-[NavigationUITests.NavigationUITests testIosUploadConversionAndTransport]' passed (66.607 seconds).",
+      "Test Case '-[NavigationUITests.NavigationUITests testIPadLandscapeContentFitsScreen]' passed (40.019 seconds)."
+    ],
+    "embeddedQa": {
+      "iphoneChecks": 99,
+      "ipadChecks": 99,
+      "noteChecksPerDevice": 23,
+      "scope": "Actual upload regression fixture and mounted NoteViewer, paging, mixed PDF/SVG export; reports exported from XCTest"
+    },
+    "previousRun": {
+      "run": 37565043189,
+      "iphonePassed": 5,
+      "ipadPassed": 1,
+      "ipadFailed": 1,
+      "failure": "InvalidStateError at getImageData in the additional 2880x1800 QA sampling canvas, before HD note checks",
+      "qaAdjustment": "Sample the same four original image pixels through a 40x40 canvas; retain the full 2880x1800 render/dimension checks, release the sampling canvas and rerun all seven native cases"
+    }
+  },
+  "localPackages": [
+    {
+      "platform": "Android",
+      "path": "release/android/ZhongYuToolBox-aoki-1.1.15-Android-HDNoteFix.apk",
+      "sha256": "86275ce5b8cac2c90b0420d2bf1481e4ac30c3bea92caf586f2096ad2acaa90a",
+      "previewBundle": "NoteDetailView-C1IYClKr.js",
+      "matchedLocalBuild": true,
+      "qaAndSigningFilesAbsent": true
+    },
+    {
+      "platform": "Windows",
+      "path": "release/ZhongYuToolBox-aoki-1.1.15-Windows-HDNoteFix.zip",
+      "sha256": "95098f331accc283988ca1fec85c4e0f535a01ac5e3584fbfa97b9261ef6fe6b",
+      "previewBundle": "NoteDetailView-DEe_3V_W.js",
+      "matchedLocalBuild": true,
+      "qaAndSigningFilesAbsent": true
+    }
+  ],
+  "source": "6c1c7e2399ada336b2699b06ed2636115d416514",
+  "publishedPackages": [
+    {
+      "repo": "nickfox395/ZhongYuToolBox_Web",
+      "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.15-aoki",
+      "source": "6c1c7e2399ada336b2699b06ed2636115d416514",
+      "stable": true,
+      "originalTagUnchanged": true,
+      "assets": [
+        {
+          "name": "ZhongYuToolBox-aoki-1.1.15-Windows-x64-Setup.exe",
+          "digest": "sha256:5cdeaeea9150fd2b02fc07e3025aade604045d3a10d1485a8f29f78cbe04752f",
+          "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/download/v1.1.15-aoki/ZhongYuToolBox-aoki-1.1.15-Windows-x64-Setup.exe"
+        },
+        {
+          "name": "ZhongYuToolBox-aoki-1.1.15-Windows-x64.zip",
+          "digest": "sha256:38178d68431ea0e9ff0c566eb48a4a9be03d2dcc39aadf12388c9f9c9e33aa7b",
+          "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/download/v1.1.15-aoki/ZhongYuToolBox-aoki-1.1.15-Windows-x64.zip"
+        },
+        {
+          "name": "ZhongYuToolBox-aoki-1.1.15-Android.apk",
+          "digest": "sha256:37bf50f2df367264c87ab7204e95799c26e49ee63880d710022e31b18db41373",
+          "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/download/v1.1.15-aoki/ZhongYuToolBox-aoki-1.1.15-Android.apk"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "digest": "sha256:08ceef78a998dc4c1b7cbb76051919595348dd1aed104a3de77d75ac506af7c8",
+          "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/download/v1.1.15-aoki/SHA256SUMS.txt"
+        },
+        {
+          "name": "ANDROID_BUILD_INFO.json",
+          "digest": "sha256:90f92dff0b706d2411b08512638a6c45d0b0b7f5e0a700136433896d6fd5a66e",
+          "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/download/v1.1.15-aoki/ANDROID_BUILD_INFO.json"
+        },
+        {
+          "name": "WINDOWS_BUILD_INFO.json",
+          "digest": "sha256:17dbd73ed62c12850a9f322fb7e115e6274f1db4f3d5f6df9161ef7b8a76f827",
+          "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/download/v1.1.15-aoki/WINDOWS_BUILD_INFO.json"
+        }
+      ]
+    },
+    {
+      "repo": "Loshop-Studio/ZhongYuToolBox_Web",
+      "url": "https://github.com/Loshop-Studio/ZhongYuToolBox_Web/releases/tag/v0.0.8-a2",
+      "source": "6c1c7e2399ada336b2699b06ed2636115d416514",
+      "stable": true,
+      "originalTagUnchanged": true,
+      "assets": [
+        {
+          "name": "ToolBox.v0.08-1.1.15-aoki-a2.apk",
+          "digest": "sha256:128b0a90e3b641b575267398b0527826d19d802ebf809e10e248070fa71b4585",
+          "url": "https://github.com/Loshop-Studio/ZhongYuToolBox_Web/releases/download/v0.0.8-a2/ToolBox.v0.08-1.1.15-aoki-a2.apk"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "digest": "sha256:9250a75ee08693828c89b52309681888d4310bdfc5068d2725f57224bec5e6d0",
+          "url": "https://github.com/Loshop-Studio/ZhongYuToolBox_Web/releases/download/v0.0.8-a2/SHA256SUMS.txt"
+        },
+        {
+          "name": "ANDROID_BUILD_INFO.json",
+          "digest": "sha256:b17998c5c769d2f5bfd2cd87946aa47898e29951b2684c1ddd4ea3904fbceb21",
+          "url": "https://github.com/Loshop-Studio/ZhongYuToolBox_Web/releases/download/v0.0.8-a2/ANDROID_BUILD_INFO.json"
+        }
+      ]
+    },
+    {
+      "repo": "nickfox395/ZhongYuToolBox_Web",
+      "url": "https://github.com/nickfox395/ZhongYuToolBox_Web/releases/tag/v1.1.15-ios-beta2",
+      "prerelease": true,
+      "source": "b231c4dbf8814a48ffcfd9b3aa594869d4015d74",
+      "authorStats": true,
+      "assets": [
+        {
+          "name": "BUILD_INFO.json",
+          "size": 316,
+          "digest": "sha256:72f2992b9aa686a4fbf230850802755f31d9dc44a2f840971c318fda92f320c1"
+        },
+        {
+          "name": "IOS_INSTALL.md",
+          "size": 8349,
+          "digest": "sha256:990ef9a675714bc078d703c3aed3fa74468a706de63d9ce93007dae2f6f163e8"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "size": 116,
+          "digest": "sha256:1358b7cb074a698a9ea8ae3ace67efeba1bf457b76343eca508c82db29e4bc08"
+        },
+        {
+          "name": "ZhongYuToolBox-aoki-1.1.15-iOS-beta2-unsigned.ipa",
+          "size": 23428952,
+          "digest": "sha256:911d3e03d548d56d2c1134c30415a47dca5e7abf2ed1ee0ae0e27fcc63cea270"
+        }
+      ]
+    },
+    {
+      "repo": "Loshop-Studio/ZhongYuToolBox_Web",
+      "url": "https://github.com/Loshop-Studio/ZhongYuToolBox_Web/releases/tag/v1.1.15-ios-beta2",
+      "prerelease": true,
+      "source": "b231c4dbf8814a48ffcfd9b3aa594869d4015d74",
+      "authorStats": true,
+      "assets": [
+        {
+          "name": "BUILD_INFO.json",
+          "size": 302,
+          "digest": "sha256:f031580a6b8ad20f9a31d06cb4a76e22dc112f36a1297340f8c207ebdaab59e4"
+        },
+        {
+          "name": "IOS_INSTALL.md",
+          "size": 8355,
+          "digest": "sha256:30d18ba4388a6498a3411a2133b2be80d1d03657b26bfb430cfdafa9a4638ecf"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "size": 99,
+          "digest": "sha256:0fe781d852761541eac18e27af4685c78fad54fb054b5810d317f4e9bf7b4d42"
+        },
+        {
+          "name": "v0.0.8-1.1.15-aoki-ios-beta2.ipa",
+          "size": 23429048,
+          "digest": "sha256:815de2beb8cde2aaf66d9e9b68ddf3b0ac9bb46faec91ae6e87e10b2b7ffe5ea"
+        }
+      ]
+    }
+  ]
+}
