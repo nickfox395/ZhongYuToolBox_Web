@@ -66,6 +66,10 @@
 
 <p><img src="docs/screenshots/android-1115-native-launch.png" alt="1.1.15 签名 Android 正式 APK 在模拟器中启动的未登录资源页" width="300"></p>
 
+**1.1.15 iOS Beta 1 原生启动实测**：GitHub macOS / Xcode 构建的应用在 iOS 26 的 iPhone 17 Pro 模拟器中运行，使用 UIKit 原生底栏和 WKWebView，截图为未登录资源页，不包含真实账号。5 项 iPhone 测试与 1 项 iPad 横屏测试全部通过，涵盖上传转换与传输、原生导航、画板编辑、专栏和反馈；[构建与测试记录](https://github.com/nickfox395/ZhongYuToolBox_Web/actions/runs/37557523639)。模拟上传使用合成资料，不能替代凌晨真实学校服务的联调。
+
+<p><img src="docs/screenshots/iphone-1115-beta1-native-launch.png" alt="1.1.15 Beta 1 原生 iPhone 应用在 iOS 26 模拟器中启动的未登录资源页" width="300"></p>
+
 ## iOS 1.1.14 Beta 2 · 移动端紧凑布局
 
 主版本保持 **1.1.14**，应用内显示 **1.1.14-ios-beta2**，内部构建号 **10114.3**。Android 1.1.14 正式页的 APK 同步替换为这次移动布局；Windows 附件保留原版本。
